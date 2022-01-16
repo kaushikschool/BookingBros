@@ -1,22 +1,24 @@
 # modules needed
-import pandas as pd
-import re 
 import random
-import smtplib, ssl
-from email.mime.text import MIMEText
+import re
+import smtplib
+import ssl
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import pandas as pd
+
 
 # user credentials to csv
-def user_info(email,uid):
-    fname = str(input('Enter your first name:'))
-    lname = str(input('Enter your last name:'))
-    email = email
-    phone_no = int(input('Enter your phone number:'))
-    df = pd.read_csv('user_credentials.csv',index_col=0)
+def user_info(pnum,name,email,uid):
+    fname       = name
+    email       = email
+    phone_no    = pnum
+    df          = pd.read_csv('user_credentials.csv',index_col=0)
     df.drop_duplicates(subset='E-mail',keep='first',inplace=True)
-    df.loc[uid] =  [fname,lname,email,phone_no]
+    df.loc[uid] =  [fname,email,phone_no]
     df.to_csv('user_credentials.csv')
     print(f'new user{fname} added sucessfull!')
+    
 # verification code generator
 def code_generator():
 
@@ -81,26 +83,4 @@ def send_email(mail):
 def email_validater(email):
     return re.match(r'[\w-]{1,20}@\w{2,20}\.\w{2,3}$',email)
 
-# merge all functions to build module
-def main():
-    email = input('Enter email:')
 
-    if email_validater(email):
-        # if Email is valid then
-        send_email(email)
-        print(cc_code)
-        print(f'A confirmation code has been sent to your email: {email} kindly check in spam folder also!')
-        comf_code = int(input('CODE:'))
-        
-        if comf_code == cc_code:
-            print('Vefification sucessfull')
-            user_info(email,uid=comf_code)
-
-        else:
-            print('error try again!')
-    
-    else:
-        # if Email is not valid
-        print(email,'is not valid\nPlease check your email once again')
-
-main()
