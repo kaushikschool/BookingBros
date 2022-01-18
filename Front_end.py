@@ -27,7 +27,7 @@ class SplashScreen():
         self.progress_bar.place(x=5,y=150)
         self.progress_bar.start(30)
         
-        self.splash_lablel = tk.Label(self.root,text='LODING!',width=20,bg='#455a64',justify="center",fg='#F9AA33',highlightthickness=0,borderwidth=0,font = "Helvetica 20 bold")
+        self.splash_lablel = tk.Label(self.root,text='WELCOME !',width=20,bg='#455a64',justify="center",fg='#F9AA33',highlightthickness=0,borderwidth=0,font = "Helvetica 20 bold")
         self.splash_lablel.place(x=30,y=40)
         
         self.root.after(3020,self.exit_splash)
@@ -336,7 +336,7 @@ class Signin_window(object):
         
         def check_user():
             
-            database = pandas.read_csv('user_credentials.csv')
+            database = pandas.read_csv('data/user_credentials.csv')
             
             if self.Semail in database['E-mail'].values:
             
@@ -540,6 +540,6 @@ class LoginWindow():
 
 
 if __name__ == '__main__':
-    # SplashScreen()
+    SplashScreen()
     LoginWindow()
             
