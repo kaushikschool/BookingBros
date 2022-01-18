@@ -2,8 +2,10 @@ import tkinter as tk
 from tkinter import ttk
 import os
 from PIL import ImageTk, Image 
-import email_verification
-from tkinter import messagebox
+import email_verification 
+import tkinter.messagebox as mbox
+import pandas
+
 
 class SplashScreen():
     
@@ -70,31 +72,75 @@ class Email_pop_up(object):
         
         btn  = tk.Button(self.email_pop,text='Ok',command=self.email_pop.destroy)
         btn.place(x=160,y=68)
+     
         
+class Ask_pswd(object):
+    
+    def __init__(self,email,name,phone,uid):
+        
+        self.email = email
+        self.name = name
+        self.phone = phone
+        self.original_cc_code = uid
+        
+        self.pswd_window = tk.Tk()
+        self.pswd_window.title('Generate password!')
+        self.pswd_window.geometry('350x100')
+        self.pswd_window.resizable(False,False)
+        self.pswd_window.config(bg='black')
+        
+        self.paswd_entry = tk.Entry(self.pswd_window,bg='#F3B745',
+                                                width=40,
+                                                justify="center",
+                                                fg='white',
+                                                highlightthickness=0,
+                                                borderwidth=0)
+        self.paswd_entry.place(x=33,y=30)
+        
+        self.pswd_btn = tk.Button(self.pswd_window,text='Ok',width=40,command=self.password_submit)
+        self.pswd_btn.place(x=25,y=60)
+        
+        self.password = self.paswd_entry.get()
+        
+        self.pswd_window.mainloop()
+        
+    
+    
+    def password_submit(self):
+        self.password = str(self.paswd_entry.get())
+        email_verification.user_info(self.phone, self.name, self.email, self.original_cc_code,self.password)
+        self.pswd_window.destroy()
+         
 
 class C_code_match(object):
     
-    def __init__(self,master,email,final_cc):
+    def __init__(self,email,final_cc):
         
         self.cc_code_matcher = tk.Tk()
+        # self.dest = des_main
         
         self.email = email
         self.final_cc = final_cc
         
         self.cc_code_matcher.geometry('350x100')
         self.cc_code_matcher.resizable(False,False)
-        
+       
+                
     def if_matched(self):
+        
+        
         
         self.cc_code_matcher.title('Sucess!')
         
         lbl = tk.Label(self.cc_code_matcher,justify="center",
                     font = "Helvetica 10 bold",
                     text=f'Your email\n{self.email}\nis added to our system succesfully!')
-        lbl.place(x=2,y=0)
+        
+        lbl.place(x=50,y=0)
         
         btn  = tk.Button(self.cc_code_matcher,text='Ok',command=self.cc_code_matcher.destroy)
         btn.place(x=180,y=70)
+        
         
     def not_matched(self):
         
@@ -109,12 +155,13 @@ class C_code_match(object):
         btn.place(x=180,y=70)
 
 
-
 class Confirmation_code(object):
     
-    def __init__(self,master,email,name,phone):
+    def __init__(self,master,email,name,phone,des_main):
         
         self.cc_code_window = tk.Tk()
+        self.master = master
+        self.dest = des_main
         
         self.email = email
         self.name = name
@@ -146,21 +193,167 @@ class Confirmation_code(object):
         
         if self.ask_cc_code == self.original_cc_code:
             
-            C_code_match(self.cc_code_window,self.email,self.ask_cc_code).if_matched()
-            email_verification.user_info(self.phone, self.name, self.email, self.original_cc_code)
+            self.dest.destroy()
             self.cc_code_window.destroy()
+            
+            C_code_match(self.email,self.ask_cc_code).if_matched()
+            Ask_pswd(self.email,self.name,self.phone,self.original_cc_code)
+            # email_verification.user_info(self.phone, self.name, self.email, self.original_cc_code)
+            
            
-            
-            
         elif self.ask_cc_code != self.original_cc_code:
             
-            C_code_match(self.cc_code_window,self.email,self.ask_cc_code).not_matched()
+            C_code_match(self.email,self.ask_cc_code).not_matched()
             
         else:
+            
             None
             pass
+   
         
+class Signin_window(object):
+    
+    def __init__(self,des_main):
+        
+        self.root = tk.Tk()
+        
+        self.dest = des_main
+        
+        self.dest.destroy()
+        
+        self.root.title('sign in ')
+        self.root.geometry('400x400')
+        
+        self.root.config(bg='#F3B745')
+        
+        # sign in label
+        self.custom_signin_label = tk.Label(self.root,text='S I G N  I N ',
+                                                    bg='#F3B745',
+                                                width=20,
+                                                justify="center",
+                                                fg='white',
+                                                highlightthickness=0,
+                                                borderwidth=0,
+                                                font = "Helvetica 20 bold")
+        self.custom_signin_label.place(x=50,y=10)
+        
+        # ask email to sign in
+        def email_click(_):
+            self.signin_email_entry.config(state='normal')
+            self.signin_email_entry.delete(0,tk.END)
 
+        def email_on_enter(e):
+            self.signin_email_entry['background'] = 'white'
+            self.signin_email_entry['foreground'] = '#F3B745'   
+        
+        def email_on_leave(e):
+            self.signin_email_entry['background'] = '#F3B745'
+            self.signin_email_entry['foreground'] = 'white'    
+        
+        self.signin_email_entry = tk.Entry(self.root,bg='#F3B745',
+                                width=25,
+                                justify="center",
+                                fg='white',
+                                highlightthickness=0,
+                                borderwidth=0,
+                                font = "Helvetica 20 bold")
+        
+        self.signin_email_entry.insert(0, 'EMAIL')
+        self.signin_email_entry.config(state='disabled')
+        self.signin_email_entry.bind("<Button-1>",email_click)
+        self.signin_email_entry.bind("<Enter>",email_on_enter)
+        self.signin_email_entry.bind("<Leave>",email_on_leave)
+        
+        self.signin_email_entry.place(x=10,y=90)
+        
+        # ask password to sign in
+        def password_click(_):
+            self.signin_pswd_entry.config(state='normal')
+            self.signin_pswd_entry.delete(0,tk.END)
+
+        def password_on_enter(e):
+            self.signin_pswd_entry['background'] = 'white'
+            self.signin_pswd_entry['foreground'] = '#F3B745'   
+        
+        def password_on_leave(e):
+            self.signin_pswd_entry['background'] = '#F3B745'
+            self.signin_pswd_entry['foreground'] = 'white'    
+        
+        self.signin_pswd_entry = tk.Entry(self.root,bg='#F3B745',
+                                width=25,
+                                justify="center",
+                                fg='white',
+                                highlightthickness=0,
+                                borderwidth=0,
+                                show='*',
+                                font = "Helvetica 20 bold")
+        
+        self.signin_pswd_entry.insert(0, 'PASSWORD')
+        self.signin_pswd_entry.config(state='disabled')
+        self.signin_pswd_entry.bind("<Button-1>",password_click)
+        self.signin_pswd_entry.bind("<Enter>",password_on_enter)
+        self.signin_pswd_entry.bind("<Leave>",password_on_leave)
+        
+        self.signin_pswd_entry.place(x=10,y=170)
+        
+        # sign in button
+        self.custom_sign_in_button = tk.Button(self.root,width=10,
+                                                height=2,
+                                                text='Sign-in',
+                                                fg='#FF398D',
+                                                font = "Helvetica 10 bold",
+                                                bg='#0134FF',
+                                                activeforeground='#F3B745',
+                                                activebackground='#0134FF',
+                                                borderwidth=0,
+                                                highlightthickness=0,
+                                                command=self.signin_button_cmd)
+        
+        self.custom_sign_in_button.place(x=150,y=280)
+         
+        self.root.mainloop()
+        
+    def show(self,m_title,m_msg):
+        
+        self.title = m_title
+        self.msg = m_msg
+        
+        self.message = tk.Tk()
+        self.message.overrideredirect(True)
+        
+        self.message.withdraw()
+        
+        mbox.showinfo(self.title,self.msg)
+        
+        self.message.destroy()
+        
+    def signin_button_cmd(self):
+        
+        self.Semail = self.signin_email_entry.get()
+        self.Spassword = self.signin_pswd_entry.get()
+        
+        # check if user exixts in our database or not
+        
+        def check_user():
+            
+            database = pandas.read_csv('user_credentials.csv')
+            
+            if self.Semail in database['E-mail'].values:
+            
+                if self.Spassword in database.loc[database['E-mail']==self.Semail].values:
+                    
+                    self.root.destroy()
+                    
+                else:
+                    
+                    self.show('Error', 'Please, check your password again!')
+                    
+            else:
+                
+                self.show('Error!', 'User not found!\nPlease check your E-mail again')
+                
+        check_user()
+        
 
 class LoginWindow():
     
@@ -185,7 +378,10 @@ class LoginWindow():
         
         self.sep = ttk.Separator(self.app,orient='vertical',)
         self.sep.place(x=750,relheight=1,relwidth=0.00001)
-                
+        
+        self.already_user_lbl = tk.Label(self.app,text='Already a member sign-in',bg="#F3B745",justify="center",fg='white',highlightthickness=0,borderwidth=0)
+        self.already_user_lbl.place(x=830,y=480)
+        
         self.custom_login_label = tk.Label(self.app,text='L O G I N ',
                                                     bg='#F3B745',
                                                 width=20,
@@ -283,24 +479,45 @@ class LoginWindow():
         
         self.custom_name_entry.place(x=800,y=350)      
     
-    #-----------------------------------------------------Submit_button--------------------------------------------------------------
-        self.custom_button = tk.Button(self.app,width=10,
-                            height=2,
-                            text='NEXT',
-                            fg='#FF398D',
-                            font = "Helvetica 10 bold",
-                            bg='#0134FF',
-                            activeforeground='#F3B745',
-                            activebackground='#0134FF',
-                            borderwidth=0,
-                            highlightthickness=0,
-                            command=self.submit_button_cmd)
+    #-----------------------------------------------------Login_button---------------------------------------------------------------
+        self.custom_log_in_button = tk.Button(self.app,width=10,
+                                                height=2,
+                                                text='Log-in',
+                                                fg='#FF398D',
+                                                font = "Helvetica 10 bold",
+                                                bg='#0134FF',
+                                                activeforeground='#F3B745',
+                                                activebackground='#0134FF',
+                                                borderwidth=0,
+                                                highlightthickness=0,
+                                                command=self.login_button_cmd)
         
-        self.custom_button.place(x=1050,y=510)
-        self.app.mainloop()      
+        self.custom_log_in_button.place(x=1050,y=510) 
+        
+    #-----------------------------------------------------Sign-in_button-------------------------------------------------------------
+        self.custom_sign_in_button = tk.Button(self.app,width=10,
+                                                        height=2,
+                                                        text='Sign-in',
+                                                        fg='#FF398D',
+                                                        font = "Helvetica 10 bold",
+                                                        bg='#0134FF',
+                                                        activeforeground='#F3B745',
+                                                        activebackground='#0134FF',
+                                                        borderwidth=0,
+                                                        highlightthickness=0,
+                                                        command=self.Signin_button_cmd)
+        self.custom_sign_in_button.place(x=850,y=510)
+        self.app.mainloop() 
+        
+    #-----------------------------------------------------Signin_button_command------------------------------------------------------
+    def Signin_button_cmd(self):
+        
+        Signin_window(self.app)
+        
+        pass
     
-    #-----------------------------------------------------Submit_button_command------------------------------------------------------
-    def submit_button_cmd(self):
+    #-----------------------------------------------------Login_button_command-------------------------------------------------------
+    def login_button_cmd(self):
         
         self.name = self.custom_name_entry.get()
         self.email = self.custom_email_entry.get()
@@ -310,7 +527,7 @@ class LoginWindow():
             
             Email_pop_up(self.app,self.email).valid_email()
             # email_verification.send_email(self.email) #--> uncomment this to send real e-mails 
-            Confirmation_code(self.app,self.email,self.name,self.phone)
+            Confirmation_code(self.app,self.email,self.name,self.phone,self.app)
             
         elif (email_verification.email_validater(self.email)) == False:
             
@@ -320,13 +537,9 @@ class LoginWindow():
             
             None
             pass
-        
-        
-    def destroy_login_window():
-        self.app.destroy()
-   
+
 
 if __name__ == '__main__':
-    SplashScreen()
+    # SplashScreen()
     LoginWindow()
             
