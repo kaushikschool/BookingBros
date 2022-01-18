@@ -1,25 +1,78 @@
-MOVIES,Rating,Stars
-Radhe,1.8,0.9
-Sardar ka grandson,4.1,2.05
-Soorarai pottru,9.1,4.55
-Sandeep aur pinky faraar,6.3,3.15
-The white tiger,7.1,3.55
-Flight,8.3,4.15
-nail polish,7.4,3.7
-Kaagaz,7.6,3.8
-Kaadan,9.2,4.6
-Pagglait,7,3.5
-Fauji calling,5.4,2.7
-Ajeeb daastaans,6.7,3.35
-Silence: can you hear it,6.6,3.3
-Tribhanga,6.1,3.05
-Mumbai saga,6.2,3.1
-The power,5.7,2.85
-Big bull,6.1,3.05
-Bansuri: the flute,2.7,1.35
-Roohi,4.3,2.15
-Lahore confidential,2.8,1.4
-Bhoomi II,5,2.5
-Krack,7.3,3.65
-Red,6.7,3.35
-Tandav,3.7,1.85
+Film,Genre,Lead Studio,Rating
+Zack and Miri Make a Porno,Romance,The Weinstein Company,70
+Youth in Revolt,Comedy,The Weinstein Company,52
+You Will Meet a Tall Dark Stranger,Comedy,Independent,35
+When in Rome,Comedy,Disney,44
+What Happens in Vegas,Comedy,Fox,72
+Water For Elephants,Drama,20th Century Fox,72
+WALL-E,Animation,Disney,89
+Waitress,Romance,Independent,67
+Waiting For Forever,Romance,Independent,53
+Valentine's Day,Comedy,Warner Bros.,54
+Tyler Perry's Why Did I get Married,Romance,Independent,47
+Twilight: Breaking Dawn,Romance,Independent,68
+Twilight,Romance,Summit,82
+The Ugly Truth,Comedy,Independent,68
+The Twilight Saga: New Moon,Drama,Summit,78
+The Time Traveler's Wife,Drama,Paramount,65
+The Proposal,Comedy,Disney,74
+The Invention of Lying,Comedy,Warner Bros.,47
+The Heartbreak Kid,Comedy,Paramount,41
+The Duchess,Drama,Paramount,68
+The Curious Case of Benjamin Button,Fantasy,Warner Bros.,81
+The Back-up Plan,Comedy,CBS,47
+Tangled,Animation,Disney,88
+Something Borrowed,Romance,Independent,48
+She's Out of My League,Comedy,Paramount,60
+Sex and the City Two,Comedy,Warner Bros.,49
+Sex and the City 2,Comedy,Warner Bros.,49
+Sex and the City,Comedy,Warner Bros.,81
+Remember Me,Drama,Summit,70
+Rachel Getting Married,Drama,Independent,61
+Penelope,Comedy,Summit,74
+P.S. I Love You,Romance,Independent,82
+Over Her Dead Body,Comedy,New Line,47
+Our Family Wedding,Comedy,Independent,49
+One Day,Romance,Independent,54
+Not Easily Broken,Drama,Independent,66
+No Reservations,Comedy,Warner Bros.,64
+Nick and Norah's Infinite Playlist,Comedy,Sony,67
+New Year's Eve,Romance,Warner Bros.,48
+My Week with Marilyn,Drama,The Weinstein Company,84
+Music and Lyrics,Romance,Warner Bros.,70
+Monte Carlo,Romance,20th Century Fox,50
+Miss Pettigrew Lives for a Day,Comedy,Independent,70
+Midnight in Paris,Romence,Sony,84
+Marley and Me,Comedy,Fox,77
+Mamma Mia!,Comedy,Universal,76
+Mamma Mia!,Comedy,Universal,76
+Made of Honor,Comdy,Sony,61
+Love Happens,Drama,Universal,40
+Love & Other Drugs,Comedy,Fox,55
+Life as We Know It,Comedy,Independent,62
+License to Wed,Comedy,Warner Bros.,55
+Letters to Juliet,Comedy,Summit,62
+Leap Year,Comedy,Universal,49
+Knocked Up,Comedy,Universal,83
+Killers,Action,Lionsgate,45
+Just Wright,Comedy,Fox,58
+Jane Eyre,Romance,Universal,77
+It's Complicated,Comedy,Universal,63
+I Love You Phillip Morris,Comedy,Independent,57
+High School Musical 3: Senior Year,Comedy,Disney,76
+He's Just Not That Into You,Comedy,Warner Bros.,60
+Good Luck Chuck,Comedy,Lionsgate,61
+Going the Distance,Comedy,Warner Bros.,56
+Gnomeo and Juliet,Animation,Disney,52
+Gnomeo and Juliet,Animation,Disney,52
+Ghosts of Girlfriends Past,Comedy,Warner Bros.,47
+Four Christmases,Comedy,Warner Bros.,52
+Fireproof,Drama,Independent,51
+Enchanted,Comedy,Disney,80
+Dear John,Drama,Sony,66
+Beginners,Comedy,Independent,80
+Across the Universe,romance,Independent,84
+A Serious Man,Drama,Universal,64
+A Dangerous Method,Drama,Independent,89
+27 Dresses,Comedy,Fox,71
+(500) Days of Summer,comedy,Fox,81
