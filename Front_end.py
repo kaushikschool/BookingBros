@@ -6,7 +6,7 @@ import email_verification
 import tkinter.messagebox as mbox
 import pandas
 
-
+# splash screen when app starts
 class SplashScreen():
     
     def __init__(self):
@@ -37,7 +37,7 @@ class SplashScreen():
     def exit_splash(self):
         self.root.destroy()
         
-        
+# when email valid or not        
 class Email_pop_up(object):
     
     def __init__(self,master,email):
@@ -73,7 +73,7 @@ class Email_pop_up(object):
         btn  = tk.Button(self.email_pop,text='Ok',command=self.email_pop.destroy)
         btn.place(x=160,y=68)
      
-        
+# password and info to database        
 class Ask_pswd(object):
     
     def __init__(self,email,name,phone,uid):
@@ -111,7 +111,7 @@ class Ask_pswd(object):
         email_verification.user_info(self.phone, self.name, self.email, self.original_cc_code,self.password)
         self.pswd_window.destroy()
          
-
+# if code valid or not
 class C_code_match(object):
     
     def __init__(self,email,final_cc):
@@ -154,7 +154,7 @@ class C_code_match(object):
         btn  = tk.Button(self.cc_code_matcher,text='Ok',command=self.cc_code_matcher.destroy)
         btn.place(x=180,y=70)
 
-
+# ask user for confiramtion sent to thier mail
 class Confirmation_code(object):
     
     def __init__(self,master,email,name,phone,des_main):
@@ -210,7 +210,7 @@ class Confirmation_code(object):
             None
             pass
    
-        
+# sign window        
 class Signin_window(object):
     
     def __init__(self,des_main):
@@ -354,7 +354,7 @@ class Signin_window(object):
                 
         check_user()
         
-
+# login window
 class LoginWindow():
     
     def __init__(self):

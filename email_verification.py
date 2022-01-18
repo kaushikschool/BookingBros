@@ -14,10 +14,10 @@ def user_info(pnum,name,email,uid,upasssword):
     email       = email
     phone_no    = pnum
     passsword  = upasssword
-    df          = pd.read_csv('user_credentials.csv',index_col=0)
+    df          = pd.read_csv('data/user_credentials.csv',index_col=0)
     df.drop_duplicates(subset='E-mail',keep='first',inplace=True)
     df.loc[uid] =  [fname,email,phone_no,passsword]
-    df.to_csv('user_credentials.csv')
+    df.to_csv('data/user_credentials.csv')
 
     
 # verification code generator

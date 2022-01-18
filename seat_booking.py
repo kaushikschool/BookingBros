@@ -114,7 +114,7 @@ def seat_allotment(movie_id,date):
     #     csv("date/day15.csv",date, movie_id)
 
     
-    return a
+    # return a
 
 
 seat_allotment(0,2)
