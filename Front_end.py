@@ -5,6 +5,8 @@ from PIL import ImageTk, Image
 import email_verification 
 import tkinter.messagebox as mbox
 import pandas
+import user_selection
+import Main_screen
 
 # splash screen when app starts
 class SplashScreen():
@@ -109,6 +111,7 @@ class Ask_pswd(object):
     def password_submit(self):
         self.password = str(self.paswd_entry.get())
         email_verification.user_info(self.phone, self.name, self.email, self.original_cc_code,self.password)
+        user_selection.who_is_user(self.email, self.password)
         self.pswd_window.destroy()
          
 # if code valid or not
@@ -342,7 +345,11 @@ class Signin_window(object):
             
                 if self.Spassword in database.loc[database['E-mail']==self.Semail].values:
                     
+                    user_selection.who_is_user(self.Semail, self.Spassword)
                     self.root.destroy()
+                    
+                    
+                    Main_screen.Main_window()
                     
                 else:
                     
@@ -354,7 +361,7 @@ class Signin_window(object):
                 
         check_user()
         
-# login window
+# login window Password
 class LoginWindow():
     
     def __init__(self):
@@ -374,7 +381,7 @@ class LoginWindow():
         self.img             = Image.open(self.abs_file_path)
         self.bg              = ImageTk.PhotoImage(self.img)
         self.label           = tk.Label(self.app, image=self.bg,borderwidth=0)
-        self.label.place(x = 0,y = 0,)
+        self.label.place(x = 0,y = 0)
         
         self.sep = ttk.Separator(self.app,orient='vertical',)
         self.sep.place(x=750,relheight=1,relwidth=0.00001)

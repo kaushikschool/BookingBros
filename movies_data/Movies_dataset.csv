@@ -1,78 +1,78 @@
-Film,Genre,Lead Studio,Rating
-Zack and Miri Make a Porno,Romance,The Weinstein Company,70
-Youth in Revolt,Comedy,The Weinstein Company,52
-You Will Meet a Tall Dark Stranger,Comedy,Independent,35
-When in Rome,Comedy,Disney,44
-What Happens in Vegas,Comedy,Fox,72
-Water For Elephants,Drama,20th Century Fox,72
-WALL-E,Animation,Disney,89
-Waitress,Romance,Independent,67
-Waiting For Forever,Romance,Independent,53
-Valentine's Day,Comedy,Warner Bros.,54
-Tyler Perry's Why Did I get Married,Romance,Independent,47
-Twilight: Breaking Dawn,Romance,Independent,68
-Twilight,Romance,Summit,82
-The Ugly Truth,Comedy,Independent,68
-The Twilight Saga: New Moon,Drama,Summit,78
-The Time Traveler's Wife,Drama,Paramount,65
-The Proposal,Comedy,Disney,74
-The Invention of Lying,Comedy,Warner Bros.,47
-The Heartbreak Kid,Comedy,Paramount,41
-The Duchess,Drama,Paramount,68
-The Curious Case of Benjamin Button,Fantasy,Warner Bros.,81
-The Back-up Plan,Comedy,CBS,47
-Tangled,Animation,Disney,88
-Something Borrowed,Romance,Independent,48
-She's Out of My League,Comedy,Paramount,60
-Sex and the City Two,Comedy,Warner Bros.,49
-Sex and the City 2,Comedy,Warner Bros.,49
-Sex and the City,Comedy,Warner Bros.,81
-Remember Me,Drama,Summit,70
-Rachel Getting Married,Drama,Independent,61
-Penelope,Comedy,Summit,74
-P.S. I Love You,Romance,Independent,82
-Over Her Dead Body,Comedy,New Line,47
-Our Family Wedding,Comedy,Independent,49
-One Day,Romance,Independent,54
-Not Easily Broken,Drama,Independent,66
-No Reservations,Comedy,Warner Bros.,64
-Nick and Norah's Infinite Playlist,Comedy,Sony,67
-New Year's Eve,Romance,Warner Bros.,48
-My Week with Marilyn,Drama,The Weinstein Company,84
-Music and Lyrics,Romance,Warner Bros.,70
-Monte Carlo,Romance,20th Century Fox,50
-Miss Pettigrew Lives for a Day,Comedy,Independent,70
-Midnight in Paris,Romence,Sony,84
-Marley and Me,Comedy,Fox,77
-Mamma Mia!,Comedy,Universal,76
-Mamma Mia!,Comedy,Universal,76
-Made of Honor,Comdy,Sony,61
-Love Happens,Drama,Universal,40
-Love & Other Drugs,Comedy,Fox,55
-Life as We Know It,Comedy,Independent,62
-License to Wed,Comedy,Warner Bros.,55
-Letters to Juliet,Comedy,Summit,62
-Leap Year,Comedy,Universal,49
-Knocked Up,Comedy,Universal,83
-Killers,Action,Lionsgate,45
-Just Wright,Comedy,Fox,58
-Jane Eyre,Romance,Universal,77
-It's Complicated,Comedy,Universal,63
-I Love You Phillip Morris,Comedy,Independent,57
-High School Musical 3: Senior Year,Comedy,Disney,76
-He's Just Not That Into You,Comedy,Warner Bros.,60
-Good Luck Chuck,Comedy,Lionsgate,61
-Going the Distance,Comedy,Warner Bros.,56
-Gnomeo and Juliet,Animation,Disney,52
-Gnomeo and Juliet,Animation,Disney,52
-Ghosts of Girlfriends Past,Comedy,Warner Bros.,47
-Four Christmases,Comedy,Warner Bros.,52
-Fireproof,Drama,Independent,51
-Enchanted,Comedy,Disney,80
-Dear John,Drama,Sony,66
-Beginners,Comedy,Independent,80
-Across the Universe,romance,Independent,84
-A Serious Man,Drama,Universal,64
-A Dangerous Method,Drama,Independent,89
-27 Dresses,Comedy,Fox,71
-(500) Days of Summer,comedy,Fox,81
+Film,Genre,Lead Studio,Rating,Price
+Zack and Miri Make a Porno,Romance,The Weinstein Company,70,5
+Youth in Revolt,Comedy,The Weinstein Company,52,5
+You Will Meet a Tall Dark Stranger,Comedy,Independent,35,5
+When in Rome,Comedy,Disney,44,5
+What Happens in Vegas,Comedy,Fox,72,5
+Water For Elephants,Drama,20th Century Fox,72,5
+WALL-E,Animation,Disney,89,5
+Waitress,Romance,Independent,67,5
+Waiting For Forever,Romance,Independent,53,5
+Valentine's Day,Comedy,Warner Bros.,54,5
+Tyler Perry's Why Did I get Married,Romance,Independent,47,5
+Twilight: Breaking Dawn,Romance,Independent,68,5
+Twilight,Romance,Summit,82,5
+The Ugly Truth,Comedy,Independent,68,5
+The Twilight Saga: New Moon,Drama,Summit,78,5
+The Time Traveler's Wife,Drama,Paramount,65,5
+The Proposal,Comedy,Disney,74,5
+The Invention of Lying,Comedy,Warner Bros.,47,5
+The Heartbreak Kid,Comedy,Paramount,41,5
+The Duchess,Drama,Paramount,68,5
+The Curious Case of Benjamin Button,Fantasy,Warner Bros.,81,5
+The Back-up Plan,Comedy,CBS,47,5
+Tangled,Animation,Disney,88,5
+Something Borrowed,Romance,Independent,48,5
+She's Out of My League,Comedy,Paramount,60,5
+Sex and the City Two,Comedy,Warner Bros.,49,5
+Sex and the City 2,Comedy,Warner Bros.,49,5
+Sex and the City,Comedy,Warner Bros.,81,5
+Remember Me,Drama,Summit,70,5
+Rachel Getting Married,Drama,Independent,61,5
+Penelope,Comedy,Summit,74,5
+P.S. I Love You,Romance,Independent,82,5
+Over Her Dead Body,Comedy,New Line,47,5
+Our Family Wedding,Comedy,Independent,49,5
+One Day,Romance,Independent,54,5
+Not Easily Broken,Drama,Independent,66,5
+No Reservations,Comedy,Warner Bros.,64,5
+Nick and Norah's Infinite Playlist,Comedy,Sony,67,5
+New Year's Eve,Romance,Warner Bros.,48,5
+My Week with Marilyn,Drama,The Weinstein Company,84,5
+Music and Lyrics,Romance,Warner Bros.,70,5
+Monte Carlo,Romance,20th Century Fox,50,5
+Miss Pettigrew Lives for a Day,Comedy,Independent,70,5
+Midnight in Paris,Romence,Sony,84,5
+Marley and Me,Comedy,Fox,77,5
+Mamma Mia!,Comedy,Universal,76,5
+Mamma Mia!,Comedy,Universal,76,5
+Made of Honor,Comdy,Sony,61,5
+Love Happens,Drama,Universal,40,5
+Love & Other Drugs,Comedy,Fox,55,5
+Life as We Know It,Comedy,Independent,62,5
+License to Wed,Comedy,Warner Bros.,55,5
+Letters to Juliet,Comedy,Summit,62,5
+Leap Year,Comedy,Universal,49,5
+Knocked Up,Comedy,Universal,83,5
+Killers,Action,Lionsgate,45,5
+Just Wright,Comedy,Fox,58,5
+Jane Eyre,Romance,Universal,77,5
+It's Complicated,Comedy,Universal,63,5
+I Love You Phillip Morris,Comedy,Independent,57,5
+High School Musical 3: Senior Year,Comedy,Disney,76,5
+He's Just Not That Into You,Comedy,Warner Bros.,60,5
+Good Luck Chuck,Comedy,Lionsgate,61,5
+Going the Distance,Comedy,Warner Bros.,56,5
+Gnomeo and Juliet,Animation,Disney,52,5
+Gnomeo and Juliet,Animation,Disney,52,5
+Ghosts of Girlfriends Past,Comedy,Warner Bros.,47,5
+Four Christmases,Comedy,Warner Bros.,52,5
+Fireproof,Drama,Independent,51,5
+Enchanted,Comedy,Disney,80,5
+Dear John,Drama,Sony,66,5
+Beginners,Comedy,Independent,80,5
+Across the Universe,romance,Independent,84,5
+A Serious Man,Drama,Universal,64,5
+A Dangerous Method,Drama,Independent,89,5
+27 Dresses,Comedy,Fox,71,5
+(500) Days of Summer,comedy,Fox,81,5
