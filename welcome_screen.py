@@ -1,5 +1,4 @@
 import pandas as pd
-import stream 
 from datentime import user_week_no as wk
 from seat_booking import seat_allotment
 
@@ -56,8 +55,7 @@ def main():
     
     elif first_input == 2:
       
-        pkgs = stream.pacakages_of_movie()
-    
+        
         for i in range(len(pkgs)):
             # print('-'* (int(len(max(pkgs[i],key=len)))+2)) => isko mai nahi hataunga x_x
             
