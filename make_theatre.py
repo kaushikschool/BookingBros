@@ -43,17 +43,17 @@ import numpy as np
 
 '''booking details'''
 
-data = {"card no":['xyz','abc'],'name':['ramesh','suresh']}
-card_list = data['card no']
-name_list = data['name']
+# data = {"card no":['xyz','abc'],'name':['ramesh','suresh']}
+# card_list = data['card no']
+# name_list = data['name']
 
-for i in range(1):
-    card_list.append(input("enter card number: "))
+# for i in range(1):
+#     card_list.append(input("enter card number: "))
 
-for j in range(1):
-    name_list.append(input("Enter name: "))
+# for j in range(1):
+#     name_list.append(input("Enter name: "))
 
-card_df = pd.DataFrame(data)
-print(card_df)
+# card_df = pd.DataFrame(data)
+# print(card_df)
 
 

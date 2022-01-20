@@ -495,7 +495,7 @@ class Main_window():
         self.root.config(bg='#F3B745')
         
         # main label
-        self.main_lblb = tk.Label(self.root,text='welcome To Booking Bros',
+        self.main_lblb = tk.Label(self.root,text='welcome To Booking Bros!',
                                                 bg='#F3B745',
                                                 justify="center",
                                                 fg='white',
@@ -503,6 +503,33 @@ class Main_window():
                                                 borderwidth=0,
                                                 font = "Helvetica 20 bold")
         self.main_lblb.place(x=280,y=20)
+        
+        
+        # book seat button
+        def buy_ticket_btn_focus(e):
+            self.buy_ticket_btn['background'] ='#F3B745'
+            self.buy_ticket_btn['foreground'] = '#FF00C6'
+        
+        def buy_ticket_btn_focus_out(e):
+            self.buy_ticket_btn['background'] =  '#FF00C6'
+            self.buy_ticket_btn['foreground'] = '#F3B745' 
+        
+        self.buy_ticket_btn = tk.Button(self.root,bg='#FF00C6',
+                                width=12,
+                                justify="center",
+                                text='BOOK SEAT',
+                                fg='white',
+                                highlightthickness=0,
+                                borderwidth=0,
+                                font = "Helvetica 20 bold",command=self.buy_ticket)
+ 
+        self.buy_ticket_btn.config(fg='white')
+        self.buy_ticket_btn.bind("<Enter>",buy_ticket_btn_focus)
+        self.buy_ticket_btn.bind("<Leave>",buy_ticket_btn_focus_out)
+        
+        self.buy_ticket_btn.place(x=50,y=125)
+        
+        
         
         # Movie button
         
@@ -588,6 +615,8 @@ class Main_window():
         Movie_frame(self.root)
         
     def open_website(self):
-    
         webbrowser.open_new('https://kaushikschool.github.io/Booking-bros/')
+        
+    def buy_ticket(self):
+        pass
 
