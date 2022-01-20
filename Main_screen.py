@@ -9,6 +9,7 @@ from tkcalendar import Calendar,DateEntry
 import webbrowser
 import tkinter.messagebox as mbox
 
+# load qr code for upi command
 class Qr(object):
     def __init__(self,master):
         
@@ -22,7 +23,7 @@ class Qr(object):
         self.master = master
         self.master.destroy()
    
-        
+# card payment screen        
 class Card(object):
     def __init__(self,product_price,master):
         
@@ -164,7 +165,7 @@ class Card(object):
         self.show('Process!', 'Payment successful processing to our website')
         webbrowser.open_new('https://kaushikschool.github.io/Booking-bros/')
         
-        
+# payment screen       
 class Payment_screen(object):
     
     def __init__(self,product_name,film_name,stream_name,buy_ticket,product_price):
@@ -310,7 +311,7 @@ class Payment_screen(object):
     def card_payment_btn_cmd(self):
         Card(self.product_price,self.payment)
     
-
+# movie frame
 class Movie_frame(object):
     
     def __init__(self,master):
@@ -399,7 +400,7 @@ class Movie_frame(object):
         
         self.list_box.lift()
 
-
+# streams frame
 class Stream_frame(object):
     def __init__(self,master):
         
@@ -483,7 +484,7 @@ class Stream_frame(object):
         
         self.stream_list_box.lift()
           
-
+# main window
 class Main_window():
     
     def __init__(self):
@@ -503,6 +504,22 @@ class Main_window():
                                                 borderwidth=0,
                                                 font = "Helvetica 20 bold")
         self.main_lblb.place(x=280,y=20)
+        
+        # side frame when nothing is selected!
+        
+        self.side_frame = tk.LabelFrame(self.root,highlightthickness=0,borderwidth=0,font='Helvetica 20 bold',bg='white')
+        self.side_frame.place(x=350,y=100,height=490,width=540)
+        
+        self.side_frame_text = 'Booking Bros!\nA simple yet effective way to\n------------------------------\n>     Buy cinema tickets \n>   Watch Online Movies\n>      Watch Web-series '
+        
+        self.side_frame_lbl = tk.Label(self.side_frame,text=self.side_frame_text,fg='#b343bf',bg='white',justify='center',highlightthickness=0,borderwidth=0,font='Helvetica 20 bold')
+        self.side_frame_lbl.place(x=45,y=20,height=400,width=500)
+        self.hyperlink = tk.Button(self.side_frame,text='Click here to visit our source code page on github!',
+                                   highlightthickness=0,borderwidth=0,
+                                   bg='white',fg='blue',
+                                   command=self.hyperlink_cmd)
+        self.hyperlink.place(x=0,y=420,width=540)
+        
         
         
         # book seat button
@@ -619,4 +636,7 @@ class Main_window():
         
     def buy_ticket(self):
         pass
+    
+    def hyperlink_cmd(self):
+            webbrowser.open_new('https://github.com/kaushikschool/BookingBros')
 
