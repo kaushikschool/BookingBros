@@ -2,7 +2,7 @@ import pandas as pd
 
 
 user_database = pd.read_csv('data/user_credentials.csv')
-movie_database = pd.read_csv('movies_data/Movies_dataset.csv')
+movie_database = pd.read_csv('dataset/Movies_dataset.csv')
 
 # uid = 0 
 

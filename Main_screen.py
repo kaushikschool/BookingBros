@@ -320,7 +320,7 @@ class Movie_frame(object):
         self.mframe = LabelFrame(self.master,highlightthickness=0,borderwidth=0,text='MOVIES',font='Helvetica 20 bold',bg='grey')
         self.mframe.place(x=350,y=100,height=490,width=540)
         
-        self.movie_data = 'movies_data/Movies_dataset.csv'
+        self.movie_data = 'dataset/Movies_dataset.csv'
         self.File  = open(self.movie_data)
         self.Reader = csv.reader(self.File)
         self.Data = list(self.Reader)
@@ -405,10 +405,10 @@ class Stream_frame(object):
         
         self.master = master
         
-        self.stream_frame = LabelFrame(self.master,highlightthickness=0,borderwidth=0,text='MOVIES',font='Helvetica 20 bold',bg='grey')
+        self.stream_frame = LabelFrame(self.master,highlightthickness=0,borderwidth=0,text='SHOWS & SERIES',font='Helvetica 20 bold',bg='grey')
         self.stream_frame.place(x=350,y=100,height=490,width=540)
         
-        self.stream_data = 'movies_data/Streams_dataset.csv'
+        self.stream_data = 'dataset/Streams_dataset.csv'
         self.File  = open(self.stream_data)
         self.Reader = csv.reader(self.File)
         self.Data = list(self.Reader)
