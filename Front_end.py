@@ -547,6 +547,6 @@ class LoginWindow():
 
 
 if __name__ == '__main__':
-    SplashScreen()
+    # SplashScreen()
     LoginWindow()
             

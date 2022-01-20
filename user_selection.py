@@ -27,6 +27,10 @@ def movie(movie_name,price):
     Uname = user_database[user_database['uid']==user].iloc[0,1]
     Uemail = user_database[user_database['uid']==user].iloc[0,2]
     
+def stream(stream_name,price):
+    user = uid
+    Uname = user_database[user_database['uid']==user].iloc[0,1]
+    Uemail = user_database[user_database['uid']==user].iloc[0,2]
 
 
 def user_data():

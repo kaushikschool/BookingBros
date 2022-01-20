@@ -6,6 +6,8 @@ import os
 from PIL import ImageTk, Image 
 import cv2
 from tkcalendar import Calendar,DateEntry
+import webbrowser
+import tkinter.messagebox as mbox
 
 class Qr(object):
     def __init__(self,master):
@@ -19,6 +21,7 @@ class Qr(object):
         
         self.master = master
         self.master.destroy()
+   
         
 class Card(object):
     def __init__(self,product_price,master):
@@ -137,13 +140,31 @@ class Card(object):
         self.card_cvv_entry.bind("<Leave>",card__cvv_on_leave)
         
         
-        self.card_submit_btn = tk.Button(self.card,text='SUBBMIT',highlightthickness=0,borderwidth=0,fg='black',bg='white',command=self.card.destroy)
+        self.card_submit_btn = tk.Button(self.card,text='SUBBMIT',highlightthickness=0,borderwidth=0,fg='black',bg='white',command=self.card_submit_btn_cmd)
         self.card_submit_btn.place(x=50,y=300,height=25,width=400)
           
         self.card.mainloop()
-
-
-
+        
+    def show(self,m_title,m_msg):
+        
+        self.title = m_title
+        self.msg = m_msg
+        
+        self.message = tk.Tk()
+        self.message.overrideredirect(True)
+        
+        self.message.withdraw()
+        
+        mbox.showinfo(self.title,self.msg)
+        
+        self.message.destroy()
+        
+    def card_submit_btn_cmd(self):
+        self.card.destroy()
+        self.show('Process!', 'Payment successful processing to our website')
+        webbrowser.open_new('https://kaushikschool.github.io/Booking-bros/')
+        
+        
 class Payment_screen(object):
     
     def __init__(self,product_name,film_name,stream_name,buy_ticket,product_price):
@@ -265,9 +286,25 @@ class Payment_screen(object):
             
         self.payment.mainloop()
         
+    def show(self,m_title,m_msg):
+        
+        self.title = m_title
+        self.msg = m_msg
+        
+        self.message = tk.Tk()
+        self.message.overrideredirect(True)
+        
+        self.message.withdraw()
+        
+        mbox.showinfo(self.title,self.msg)
+        
+        self.message.destroy()
+        
     def upi_payment_btn_cmd(self):
         
         Qr(self.payment)
+        self.show('Success!', 'Payment successfull procceding to our website')
+        webbrowser.open_new('https://kaushikschool.github.io/Booking-bros/')
         
         
     def card_payment_btn_cmd(self):
@@ -361,7 +398,91 @@ class Movie_frame(object):
     def back_btn_cmd(self):
         
         self.list_box.lift()
+
+
+class Stream_frame(object):
+    def __init__(self,master):
         
+        self.master = master
+        
+        self.stream_frame = LabelFrame(self.master,highlightthickness=0,borderwidth=0,text='MOVIES',font='Helvetica 20 bold',bg='grey')
+        self.stream_frame.place(x=350,y=100,height=490,width=540)
+        
+        self.stream_data = 'movies_data/Streams_dataset.csv'
+        self.File  = open(self.stream_data)
+        self.Reader = csv.reader(self.File)
+        self.Data = list(self.Reader)
+        del(self.Data[0])
+        
+        list_of_entry = []
+        for x in list(range(0,len(self.Data))):
+            list_of_entry.append(self.Data[x][0])
+        
+        # movie list
+        self.stream_var = tk.StringVar(value=list_of_entry)
+        self.stream_list_box = tk.Listbox(self.stream_frame,listvariable=self.stream_var,font='Helvetica 20 bold',bg='white',fg='black')
+        self.stream_list_box.place(x=5,y=10,height=330,width=530)
+        
+    # btn to select movie and next
+        self.stream_next  = tk.Button(self.stream_frame,text='Next',command=self.stream_next_btn_command)
+        self.stream_next.place(x=235,y=400)    
+        
+    # btn to select movie and next
+        self.stream_back = tk.Button(self.stream_frame,text='Back',command=self.stream_back_btn_cmd)
+        self.stream_back.place(x=135,y=400)
+        
+    def stream_labels(self,master,lbl_text,xp,yp):
+        
+        self.xp = xp
+        self.yp = yp
+        self.master = master
+        self.lbl_text = lbl_text
+        
+        self.lbl = tk.Label(self.master,highlightthickness=0,borderwidth=0,text=f'{self.lbl_text}',font='Helvetica 10 bold',fg='white',bg='black')
+        self.lbl.place(x=self.xp,y=self.yp)
+        
+        
+        
+    def stream_next_btn_command(self):
+        
+        self.lbox_index = self.stream_list_box.curselection()[0]
+        
+        self.stream_name = self.Data[self.lbox_index][0]
+        self.stream_genre = self.Data[self.lbox_index][1]
+        self.stream_rating = int(self.Data[self.lbox_index][2])
+        self.stream_price = int(int(self.Data[self.lbox_index][3])/2)
+        
+        
+        self.stream_deatil_frame = tk.LabelFrame(self.stream_frame,highlightthickness=0,borderwidth=0,text='SHOWS',font='Helvetica 20 bold',bg='black')
+        self.stream_deatil_frame.place(x=5,y=10,height=330,width=530)
+        
+        self.stream_labels(self.stream_deatil_frame, 'SHOW', 230, 4)
+        self.stream_name_label = tk.Label(self.stream_deatil_frame,text=f'{self.stream_name}',font='Helvetica 20 bold')
+        self.stream_name_label.place(x=15,y=20,width=500,height=40)
+        
+        self.stream_labels(self.stream_deatil_frame, 'DESCRIPTION', 200, 64)
+        self.stream_genre_label = tk.Label(self.stream_deatil_frame,text=f'{self.stream_genre}',font='Helvetica 20 bold',wraplength=500)
+        self.stream_genre_label.place(x=15,y=80,width=500)
+        
+        
+        self.stream_labels(self.stream_deatil_frame, 'RATING', 230, 204)
+        self.stream_lead_studio_label = tk.Label(self.stream_deatil_frame,text=f'{self.stream_rating/10}',font='Helvetica 20 bold')
+        self.stream_lead_studio_label.place(x=15,y=230,width=500,height=40)
+        
+        user_selection.stream(self.stream_name, self.stream_price)
+        
+        self.buy_movie_btn = tk.Button(self.stream_frame,text='Buy and watch show online!',command=self.buy_movie_btn_cmd)
+        self.buy_movie_btn.place(x=335,y=400)
+    
+        self.stream_list_box.lower()
+        
+    def buy_movie_btn_cmd(self):
+        Payment_screen('Stream', None, self.stream_name, None, self.stream_price)
+        
+    def stream_back_btn_cmd(self):
+        
+        self.stream_list_box.lift()
+          
 
 class Main_window():
     
@@ -424,7 +545,7 @@ class Main_window():
                                 fg='white',
                                 highlightthickness=0,
                                 borderwidth=0,
-                                font = "Helvetica 20 bold")
+                                font = "Helvetica 20 bold",command=self.Sframe)
  
         self.stream_btn.config(fg='white')
         self.stream_btn.bind("<Enter>",stream_btn_focus)
@@ -448,7 +569,7 @@ class Main_window():
                                 fg='white',
                                 highlightthickness=0,
                                 borderwidth=0,
-                                font = "Helvetica 20 bold")
+                                font = "Helvetica 20 bold",command=self.open_website)
         
         
  
@@ -460,7 +581,13 @@ class Main_window():
         
         self.root.mainloop()
         
+    def Sframe(self):
+        Stream_frame(self.root)
+        
     def mfarme(self):
         Movie_frame(self.root)
+        
+    def open_website(self):
+    
+        webbrowser.open_new('https://kaushikschool.github.io/Booking-bros/')
 
-# Main_window()
