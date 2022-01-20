@@ -533,7 +533,7 @@ class LoginWindow():
         if (email_verification.email_validater(self.email)) == True:
             
             Email_pop_up(self.app,self.email).valid_email()
-            # email_verification.send_email(self.email) #--> uncomment this to send real e-mails 
+            email_verification.send_email(self.email) #--> uncomment this to send real e-mails 
             Confirmation_code(self.app,self.email,self.name,self.phone,self.app)
             
         elif (email_verification.email_validater(self.email)) == False:
@@ -547,6 +547,6 @@ class LoginWindow():
 
 
 if __name__ == '__main__':
-    # SplashScreen()
+    SplashScreen()
     LoginWindow()
             
