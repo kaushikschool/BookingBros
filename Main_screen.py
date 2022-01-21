@@ -8,6 +8,7 @@ import cv2
 from tkcalendar import Calendar,DateEntry
 import webbrowser
 import tkinter.messagebox as mbox
+import seats
 
 # load qr code for upi command
 class Qr(object):
@@ -311,6 +312,50 @@ class Payment_screen(object):
     def card_payment_btn_cmd(self):
         Card(self.product_price,self.payment)
     
+# Buy ticket frame
+class BuyTicket(object):
+    def __init__(self,master):
+        
+        self.master = master
+        
+        self.BTframe = LabelFrame(self.master,highlightthickness=0,borderwidth=0,font='Helvetica 10 bold',bg='white')
+        self.BTframe.place(x=350,y=100,height=490,width=540)   
+        
+        self.date_pick_lbl = tk.Label(self.BTframe,highlightthickness=0,borderwidth=0,text='Pick a ate you want to book seat for',bg='white',font='Helvetica 18 bold')
+        self.date_pick_lbl.place(x=55,y=30)
+        
+        self.date_pick = Calendar(self.BTframe,selectmode='day',background="black", disabledbackground="black", bordercolor="black", 
+               headersbackground="black", normalbackground="black", foreground='white', 
+               normalforeground='white', headersforeground='white')
+        
+        self.date_pick.place(x=50,y=80,width=440,height=350)
+        
+        self.date_get_next = tk.Button(self.BTframe,highlightthickness=0,borderwidth=0,font='Helvetica 10 bold',text='NEXT',bg='white',fg='black',command=self.get_next)
+        self.date_get_next.place(x=350,y=450,width=100)
+        
+        self.date_get_back = tk.Button(self.BTframe,highlightthickness=0,borderwidth=0,font='Helvetica 10 bold',text='BACK',bg='white',fg='black',command=self.get_back)
+        self.date_get_back.place(x=150,y=450,width=100)
+        
+        
+    def get_next(self):
+        self.full_date = self.date_pick.get_date()
+        self.date = self.full_date.split('/')[0]
+        self.database_date = user_selection.buy_ticket(self.date)
+        
+        self.next_frame = tk.LabelFrame(self.BTframe,borderwidth=0,highlightthickness=0,bg='white',font='Helvetica 20 bold')
+        self.next_frame.place(x=0,y=0,height=450,width=530)
+        
+        self.pick_movie = tk.Label(self.next_frame,borderwidth=0,highlightthickness=0,text='SELECT MOVIE',font='Helvetica 20 bold',bg='white')
+        self.pick_movie.place(x=55,y=30)
+        
+        self.date_pick.lower()
+        # seats.MainApp(self.database_date)
+        
+    def get_back(self):
+        self.next_frame.lower()
+        self.date_pick_lbl.lift()
+        self.date_pick.lift()
+
 # movie frame
 class Movie_frame(object):
     
@@ -635,8 +680,9 @@ class Main_window():
         webbrowser.open_new('https://kaushikschool.github.io/Booking-bros/')
         
     def buy_ticket(self):
-        pass
+        BuyTicket(self.root)
     
     def hyperlink_cmd(self):
             webbrowser.open_new('https://github.com/kaushikschool/BookingBros')
 
+# Main_window()

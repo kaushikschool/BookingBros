@@ -40,3 +40,52 @@ def user_data():
     
     Uinfo = [user,Uname,Uemail,Uphone]
     return Uinfo
+
+# buy ticket function
+def buy_ticket(entered_date):
+    
+    date = int(entered_date)
+    
+    if date == 1:
+        seat_database = pd.read_csv('data/MOVIE1/day1.csv')
+        return seat_database
+    
+    elif date == 2:
+        seat_database = pd.read_csv('data/day2.csv')
+        return seat_database
+    
+    elif date == 3:
+        seat_database = pd.read_csv('data/day3.csv')
+        return seat_database
+    
+    elif date == 4:
+        seat_database = pd.read_csv('data/day4.csv')
+        return seat_database
+    
+    elif date == 5:
+        seat_database = pd.read_csv('data/day5.csv')
+        return seat_database
+    
+    elif date == 6:
+        seat_database = pd.read_csv('data/day6.csv')
+        return seat_database
+    
+    elif date == 7:
+        seat_database = pd.read_csv('data/day7.csv')
+        return seat_database
+    
+    elif date == 8:
+        seat_database = pd.read_csv('data/day8.csv')
+        return seat_database
+    
+    elif date == 9:
+        seat_database = pd.read_csv('data/day9.csv')
+        return seat_database
+    
+    elif date == 10:
+        seat_database = pd.read_csv('data/day10.csv')
+        return seat_database
+    
+def seats(datbase):
+    df = datbase
+    print(df)

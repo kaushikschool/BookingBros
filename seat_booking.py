@@ -16,9 +16,10 @@ def seat_allotment(movie_id,date):
                 theatre[column][row]=1
                 print("seat available",column+'-'+str(row))
                 print("Booking seat...")
-                # print("seat booked!")
+                print("seat booked!")
                 a = str(row,column,'is booked!')
                 available = True
+                print(a)
         return a
 
 seat_allotment(0,2)

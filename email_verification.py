@@ -33,7 +33,7 @@ def send_email(mail):
 
     sender_email = "brosbooking3"
     receiver_email = mail
-    password = '@bbros#88'
+    password = 'bbros88#KT'
 
     message = MIMEMultipart("alternative")
     message["Subject"] = "Booking bros verification code"

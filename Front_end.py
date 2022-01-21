@@ -111,8 +111,10 @@ class Ask_pswd(object):
     def password_submit(self):
         self.password = str(self.paswd_entry.get())
         email_verification.user_info(self.phone, self.name, self.email, self.original_cc_code,self.password)
-        user_selection.who_is_user(self.email, self.password)
         self.pswd_window.destroy()
+        user_selection.who_is_user(self.email, self.password)
+        Main_screen.Main_window()
+        
          
 # if code valid or not
 class C_code_match(object):
@@ -184,7 +186,7 @@ class Confirmation_code(object):
                                         borderwidth=0) 
         self.cc_entry.place(x=25,y=30)
         
-        print(email_verification.cc_code)
+        # print(email_verification.cc_code) -> verification code
         
         self.cc_btn = tk.Button(self.cc_code_window,text='Submit confirmation code',width=40,command=self.cc_btn_cmd)
         self.cc_btn.place(x=50,y=60)
