@@ -65,7 +65,7 @@ class Email_pop_up(object):
         
     def not_valid_email(self):
         
-        self.email_pop.title('EMAIL EROOR!')
+        self.email_pop.title('EMAIL ERROR!')
         
         lbl = tk.Label(self.email_pop,justify="center",
                     font = "Helvetica 10 bold",
@@ -388,7 +388,8 @@ class LoginWindow():
         self.sep = ttk.Separator(self.app,orient='vertical',)
         self.sep.place(x=750,relheight=1,relwidth=0.00001)
         
-        self.already_user_lbl = tk.Label(self.app,text='Already a member sign-in',bg="#F3B745",justify="center",fg='white',highlightthickness=0,borderwidth=0)
+        self.already_user_lbl = tk.Label(self.app,text='Already a member?',bg="#F3B745",justify="center",fg='white',highlightthickness=0,borderwidth=0
+                                         ,font = "Helvetica 12 bold")
         self.already_user_lbl.place(x=830,y=480)
         
         self.custom_login_label = tk.Label(self.app,text='L O G I N ',
@@ -492,7 +493,7 @@ class LoginWindow():
         self.custom_log_in_button = tk.Button(self.app,width=10,
                                                 height=2,
                                                 text='Log-in',
-                                                fg='#FF398D',
+                                                fg='white',
                                                 font = "Helvetica 10 bold",
                                                 bg='#0134FF',
                                                 activeforeground='#F3B745',
@@ -507,7 +508,7 @@ class LoginWindow():
         self.custom_sign_in_button = tk.Button(self.app,width=10,
                                                         height=2,
                                                         text='Sign-in',
-                                                        fg='#FF398D',
+                                                        fg='white',
                                                         font = "Helvetica 10 bold",
                                                         bg='#0134FF',
                                                         activeforeground='#F3B745',
@@ -549,6 +550,6 @@ class LoginWindow():
 
 
 if __name__ == '__main__':
-    SplashScreen()
+    # SplashScreen()
     LoginWindow()
             

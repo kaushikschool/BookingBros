@@ -9,6 +9,7 @@ from tkcalendar import Calendar,DateEntry
 import webbrowser
 import tkinter.messagebox as mbox
 import seats
+import datentime
 
 # load qr code for upi command
 class Qr(object):
@@ -142,7 +143,7 @@ class Card(object):
         self.card_cvv_entry.bind("<Leave>",card__cvv_on_leave)
         
         
-        self.card_submit_btn = tk.Button(self.card,text='SUBBMIT',highlightthickness=0,borderwidth=0,fg='black',bg='white',command=self.card_submit_btn_cmd)
+        self.card_submit_btn = tk.Button(self.card,text='SUBMIT',highlightthickness=0,borderwidth=0,fg='black',bg='white',command=self.card_submit_btn_cmd)
         self.card_submit_btn.place(x=50,y=300,height=25,width=400)
           
         self.card.mainloop()
@@ -307,10 +308,11 @@ class Payment_screen(object):
         Qr(self.payment)
         self.show('Success!', 'Payment successfull procceding to our website')
         webbrowser.open_new('https://kaushikschool.github.io/Booking-bros/')
-        
+        self.payment.destroy()
         
     def card_payment_btn_cmd(self):
         Card(self.product_price,self.payment)
+        self.payment.destroy()
     
 # Buy ticket frame
 class BuyTicket(object):
@@ -338,18 +340,47 @@ class BuyTicket(object):
         
         
     def get_next(self):
+        self.date_pick.lower()
         self.full_date = self.date_pick.get_date()
         self.date = self.full_date.split('/')[0]
-        self.database_date = user_selection.buy_ticket(self.date)
         
         self.next_frame = tk.LabelFrame(self.BTframe,borderwidth=0,highlightthickness=0,bg='white',font='Helvetica 20 bold')
         self.next_frame.place(x=0,y=0,height=450,width=530)
+        self.week_no = datentime.get_week_of_month(self.full_date)
+        self.movie_th_df = user_selection.movie_by_week(self.week_no)
+        
+        self.m1_btn = tk.Button(self.BTframe,text=f'{self.movie_th_df.iloc[0,0]}\n9:00-12:00 AM',font='Helvetica 15 bold',command=self.movie1_selected)
+        self.m1_btn.place(x=150,y=100,width=300)
+        
+        self.m2_btn = tk.Button(self.BTframe,text=f'{self.movie_th_df.iloc[1,0]}\n9:00-12:00 AM',font='Helvetica 15 bold',command=self.movie2_selected)
+        self.m2_btn.place(x=150,y=200,width=300)
+        
+        self.m3_btn = tk.Button(self.BTframe,text=f'{self.movie_th_df.iloc[2,0]}\n9:00-12:00 AM',font='Helvetica 15 bold',command=self.movie3_selected)
+        self.m3_btn.place(x=150,y=300,width=300)
+        
         
         self.pick_movie = tk.Label(self.next_frame,borderwidth=0,highlightthickness=0,text='SELECT MOVIE',font='Helvetica 20 bold',bg='white')
-        self.pick_movie.place(x=55,y=30)
+        self.pick_movie.place(x=150,y=30,width=300)
         
-        self.date_pick.lower()
-        # seats.MainApp(self.database_date)
+        
+        
+    def movie1_selected(self):
+        self.database_date = user_selection.buy_ticket(self.date,'M1')
+        print(self.database_date)
+        seats.MainApp(self.database_date,self.date,'M1')
+        Payment_screen('BuyTicket', None, None, self.movie_th_df.iloc[0,0], 100)
+        
+    def movie2_selected(self):
+        self.database_date = user_selection.buy_ticket(self.date,'M2')
+        
+        seats.MainApp(self.database_date,self.date,'M2')
+        Payment_screen('BuyTicket', None, None, self.movie_th_df.iloc[1,0], 250)
+        
+    def movie3_selected(self):
+        self.database_date = user_selection.buy_ticket(self.date,'M3')
+        
+        seats.MainApp(self.database_date,self.date,'M3')
+        Payment_screen('BuyTicket', None, None, self.movie_th_df.iloc[2,0], 300)
         
     def get_back(self):
         self.next_frame.lower()
@@ -363,7 +394,7 @@ class Movie_frame(object):
         
         self.master = master
         
-        self.mframe = LabelFrame(self.master,highlightthickness=0,borderwidth=0,text='MOVIES',font='Helvetica 20 bold',bg='grey')
+        self.mframe = LabelFrame(self.master,highlightthickness=0,borderwidth=0,text='WATCH ONLINE',font='Helvetica 20 bold',bg='grey')
         self.mframe.place(x=350,y=100,height=490,width=540)
         
         self.movie_data = 'dataset/Movies_dataset.csv'
@@ -555,7 +586,7 @@ class Main_window():
         self.side_frame = tk.LabelFrame(self.root,highlightthickness=0,borderwidth=0,font='Helvetica 20 bold',bg='white')
         self.side_frame.place(x=350,y=100,height=490,width=540)
         
-        self.side_frame_text = 'Booking Bros!\nA simple yet effective way to\n------------------------------\n>     Buy cinema tickets \n>   Watch Online Movies\n>      Watch Web-series '
+        self.side_frame_text = "Buy Cinema Tickets\nStream Online\nBinge Watch\nand many more..."
         
         self.side_frame_lbl = tk.Label(self.side_frame,text=self.side_frame_text,fg='#b343bf',bg='white',justify='center',highlightthickness=0,borderwidth=0,font='Helvetica 20 bold')
         self.side_frame_lbl.place(x=45,y=20,height=400,width=500)
@@ -577,7 +608,7 @@ class Main_window():
             self.buy_ticket_btn['foreground'] = '#F3B745' 
         
         self.buy_ticket_btn = tk.Button(self.root,bg='#FF00C6',
-                                width=12,
+                                width=13,
                                 justify="center",
                                 text='BOOK SEAT',
                                 fg='white',
@@ -604,9 +635,9 @@ class Main_window():
             self.movie_btn['foreground'] = '#F3B745' 
         
         self.movie_btn = tk.Button(self.root,bg='#FF00C6',
-                                width=12,
+                                width=13,
                                 justify="center",
-                                text='MOVIES',
+                                text='WATCH ONLINE',
                                 fg='white',
                                 highlightthickness=0,
                                 borderwidth=0,
@@ -628,7 +659,7 @@ class Main_window():
             self.stream_btn['foreground'] = '#F3B745' 
         
         self.stream_btn = tk.Button(self.root,bg='#FF00C6',
-                                width=12,
+                                width=13,
                                 justify="center",
                                 text='STREAMS',
                                 fg='white',
@@ -652,7 +683,7 @@ class Main_window():
             self.website_btn['foreground'] = '#F3B745' 
         
         self.website_btn = tk.Button(self.root,bg='#FF00C6',
-                                width=12,
+                                width=13,
                                 justify="center",
                                 text='WEBSITE',
                                 fg='white',
