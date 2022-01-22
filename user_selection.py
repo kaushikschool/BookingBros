@@ -5,6 +5,13 @@ user_database = pd.read_csv('data/user_credentials.csv')
 movie_database = pd.read_csv('dataset/Movies_dataset.csv')
 
 
+def log_in_who_is_user(user_email):
+    
+    global uid
+    
+    email = user_email
+    uid = user_database[(user_database['E-mail']==email)].iloc[0,0]
+
 # get uid of who is user 
 def who_is_user(user_email,user_password):
     
@@ -407,106 +414,106 @@ def buy_ticket(entered_date,movie):
 def df_to_csv(database,movie,date):
     if movie == 'M1':
         if date == 1:
-            database.to_csv('data/MOVIE1/day1.csv')
+            database.to_csv(    'data/MOVIE1/day1.csv',igonre_index=True)
 
         
         elif date == 2:
-            database.to_csv('data/MOVIE1/day2.csv')
+            database.to_csv(    'data/MOVIE1/day2.csv',igonre_index=True)
 
         
         elif date == 3:
-            database.to_csv('data/MOVIE1/day3.csv')
+            database.to_csv(    'data/MOVIE1/day3.csv',igonre_index=True)
 
         
         elif date == 4:
-            database.to_csv('data/MOVIE1/day4.csv')
+            database.to_csv(    'data/MOVIE1/day4.csv',igonre_index=True)
 
         
         elif date == 5:
-            database.to_csv('data/MOVIE1/day5.csv')
+            database.to_csv(    'data/MOVIE1/day5.csv',igonre_index=True)
 
         
         elif date == 6:
-            database.to_csv('data/MOVIE1/day6.csv')
+            database.to_csv(    'data/MOVIE1/day6.csv',igonre_index=True)
 
         
         elif date == 7:
-            database.to_csv('data/MOVIE1/day7.csv')
+            database.to_csv(    'data/MOVIE1/day7.csv',igonre_index=True)
 
         
         elif date == 8:
-            database.to_csv('data/MOVIE1/day8.csv')
+            database.to_csv(    'data/MOVIE1/day8.csv',igonre_index=True)
 
         
         elif date == 9:
-            database.to_csv('data/MOVIE1/day9.csv')
+            database.to_csv(    'data/MOVIE1/day9.csv',igonre_index=True)
 
         
         elif date == 10:
-            database.to_csv('data/MOVIE1/day10.csv')
+            database.to_csv(    'data/MOVIE1/day10.csv',igonre_index=True)
 
         elif date == 11:
-            database.to_csv('data/MOVIE1/day11.csv')
+            database.to_csv(    'data/MOVIE1/day11.csv',igonre_index=True)
 
         elif date == 12:
-            database.to_csv('data/MOVIE1/day12.csv')
+            database.to_csv(    'data/MOVIE1/day12.csv',igonre_index=True)
 
         elif date == 13:
-            database.to_csv('data/MOVIE1/day13.csv')
+            database.to_csv(    'data/MOVIE1/day13.csv',igonre_index=True)
 
         elif date == 14:
-            database.to_csv('data/MOVIE1/day14.csv')
+            database.to_csv(    'data/MOVIE1/day14.csv',igonre_index=True)
 
         elif date == 15:
-            database.to_csv('data/MOVIE1/day15.csv')
+            database.to_csv(    'data/MOVIE1/day15.csv',igonre_index=True)
 
         elif date == 16:
-            database.to_csv('data/MOVIE1/day16.csv')
+            database.to_csv(    'data/MOVIE1/day16.csv',igonre_index=True)
 
         elif date == 17:
-            database.to_csv('data/MOVIE1/day17.csv')
+            database.to_csv(    'data/MOVIE1/day17.csv',igonre_index=True)
 
         elif date == 18:
-            database.to_csv('data/MOVIE1/day18.csv')
+            database.to_csv(    'data/MOVIE1/day18.csv',igonre_index=True)
 
         elif date == 19:
-            database.to_csv('data/MOVIE1/day19.csv')
+            database.to_csv(    'data/MOVIE1/day19.csv',igonre_index=True)
 
         elif date == 20:
-            database.to_csv('data/MOVIE1/day20.csv')
+            database.to_csv(    'data/MOVIE1/day20.csv',igonre_index=True)
 
         elif date == 21:
-            database.to_csv('data/MOVIE1/day21.csv')
+            database.to_csv(    'data/MOVIE1/day21.csv',igonre_index=True)
 
         elif date == 22:
-            database.to_csv('data/MOVIE1/day22.csv')
+            database.to_csv(    'data/MOVIE1/day22.csv',igonre_index=True)
 
         elif date == 23:
-            database.to_csv('data/MOVIE1/day23.csv')
+            database.to_csv(    'data/MOVIE1/day23.csv',igonre_index=True)
 
         elif date == 24:
-            database.to_csv('data/MOVIE1/day24.csv')
+            database.to_csv(    'data/MOVIE1/day24.csv',igonre_index=True)
 
         elif date == 25:
-            database.to_csv('data/MOVIE1/day25.csv')
+            database.to_csv(    'data/MOVIE1/day25.csv',igonre_index=True)
 
         elif date == 26:
-            database.to_csv('data/MOVIE1/day26.csv')
+            database.to_csv(    'data/MOVIE1/day26.csv',igonre_index=True)
 
         elif date == 27:
-            database.to_csv('data/MOVIE1/day27.csv')
+            database.to_csv(    'data/MOVIE1/day27.csv',igonre_index=True)
 
         elif date == 28:
-            database.to_csv('data/MOVIE1/day28.csv')
+            database.to_csv(    'data/MOVIE1/day28.csv',igonre_index=True)
 
         elif date == 29:
-            database.to_csv('data/MOVIE1/day29.csv')
+            database.to_csv(    'data/MOVIE1/day29.csv',igonre_index=True)
 
         elif date == 30:
-            database.to_csv('data/MOVIE1/day30.csv')
+            database.to_csv(    'data/MOVIE1/day30.csv',igonre_index=True)
 
         elif date == 31:
-            database.to_csv('data/MOVIE1/day31.csv')
+            database.to_csv(    'data/MOVIE1/day31.csv',igonre_index=True)
 
         else:
             None
@@ -514,106 +521,106 @@ def df_to_csv(database,movie,date):
         
     elif movie == 'M2':
         if date == 1:
-            database.to_csv('data/MOVIE2/day1.csv')
+            database.to_csv(    'data/MOVIE2/day1.csv',igonre_index=True)
 
         
         elif date == 2:
-            database.to_csv('data/MOVIE2/day2.csv')
+            database.to_csv(    'data/MOVIE2/day2.csv',igonre_index=True)
 
         
         elif date == 3:
-            database.to_csv('data/MOVIE2/day3.csv')
+            database.to_csv(    'data/MOVIE2/day3.csv',igonre_index=True)
 
         
         elif date == 4:
-            database.to_csv('data/MOVIE2/day4.csv')
+            database.to_csv(    'data/MOVIE2/day4.csv',igonre_index=True)
 
         
         elif date == 5:
-            database.to_csv('data/MOVIE2/day5.csv')
+            database.to_csv(    'data/MOVIE2/day5.csv',igonre_index=True)
 
         
         elif date == 6:
-            database.to_csv('data/MOVIE2/day6.csv')
+            database.to_csv(    'data/MOVIE2/day6.csv',igonre_index=True)
 
         
         elif date == 7:
-            database.to_csv('data/MOVIE2/day7.csv')
+            database.to_csv(    'data/MOVIE2/day7.csv',igonre_index=True)
 
         
         elif date == 8:
-            database.to_csv('data/MOVIE2/day8.csv')
+            database.to_csv(    'data/MOVIE2/day8.csv',igonre_index=True)
 
         
         elif date == 9:
-            database.to_csv('data/MOVIE2/day9.csv')
+            database.to_csv(    'data/MOVIE2/day9.csv',igonre_index=True)
 
         
         elif date == 10:
-            database.to_csv('data/MOVIE2/day10.csv')
+            database.to_csv(    'data/MOVIE2/day10.csv',igonre_index=True)
 
         elif date == 11:
-            database.to_csv('data/MOVIE2/day11.csv')
+            database.to_csv(    'data/MOVIE2/day11.csv',igonre_index=True)
 
         elif date == 12:
-            database.to_csv('data/MOVIE2/day12.csv')
+            database.to_csv(    'data/MOVIE2/day12.csv',igonre_index=True)
 
         elif date == 13:
-            database.to_csv('data/MOVIE2/day13.csv')
+            database.to_csv(    'data/MOVIE2/day13.csv',igonre_index=True)
 
         elif date == 14:
-            database.to_csv('data/MOVIE2/day14.csv')
+            database.to_csv(    'data/MOVIE2/day14.csv',igonre_index=True)
 
         elif date == 15:
-            database.to_csv('data/MOVIE2/day15.csv')
+            database.to_csv(    'data/MOVIE2/day15.csv',igonre_index=True)
 
         elif date == 16:
-            database.to_csv('data/MOVIE2/day16.csv')
+            database.to_csv(    'data/MOVIE2/day16.csv',igonre_index=True)
 
         elif date == 17:
-            database.to_csv('data/MOVIE2/day17.csv')
+            database.to_csv(    'data/MOVIE2/day17.csv',igonre_index=True)
 
         elif date == 18:
-            database.to_csv('data/MOVIE2/day18.csv')
+            database.to_csv(    'data/MOVIE2/day18.csv',igonre_index=True)
 
         elif date == 19:
-            database.to_csv('data/MOVIE2/day19.csv')
+            database.to_csv(    'data/MOVIE2/day19.csv',igonre_index=True)
 
         elif date == 20:
-            database.to_csv('data/MOVIE2/day20.csv')
+            database.to_csv(    'data/MOVIE2/day20.csv',igonre_index=True)
 
         elif date == 21:
-            database.to_csv('data/MOVIE2/day21.csv')
+            database.to_csv(    'data/MOVIE2/day21.csv',igonre_index=True)
 
         elif date == 22:
-            database.to_csv('data/MOVIE2/day22.csv')
+            database.to_csv(    'data/MOVIE2/day22.csv',igonre_index=True)
 
         elif date == 23:
-            database.to_csv('data/MOVIE2/day23.csv')
+            database.to_csv(    'data/MOVIE2/day23.csv',igonre_index=True)
 
         elif date == 24:
-            database.to_csv('data/MOVIE2/day24.csv')
+            database.to_csv(    'data/MOVIE2/day24.csv',igonre_index=True)
 
         elif date == 25:
-            database.to_csv('data/MOVIE2/day25.csv')
+            database.to_csv(    'data/MOVIE2/day25.csv',igonre_index=True)
 
         elif date == 26:
-            database.to_csv('data/MOVIE2/day26.csv')
+            database.to_csv(    'data/MOVIE2/day26.csv',igonre_index=True)
 
         elif date == 27:
-            database.to_csv('data/MOVIE2/day27.csv')
+            database.to_csv(    'data/MOVIE2/day27.csv',igonre_index=True)
 
         elif date == 28:
-            database.to_csv('data/MOVIE2/day28.csv')
+            database.to_csv(    'data/MOVIE2/day28.csv',igonre_index=True)
 
         elif date == 29:
-            database.to_csv('data/MOVIE2/day29.csv')
+            database.to_csv(    'data/MOVIE2/day29.csv',igonre_index=True)
 
         elif date == 30:
-            database.to_csv('data/MOVIE2/day30.csv')
+            database.to_csv(    'data/MOVIE2/day30.csv',igonre_index=True)
 
         elif date == 31:
-            database.to_csv('data/MOVIE2/day31.csv')
+            database.to_csv(    'data/MOVIE2/day31.csv',igonre_index=True)
 
         else:
             None
@@ -621,106 +628,106 @@ def df_to_csv(database,movie,date):
         
     elif movie == 'M3':
         if date == 1:
-            database.to_csv('data/MOVIE3/day1.csv')
+            database.to_csv(    'data/MOVIE3/day1.csv',igonre_index=True)
 
         
         elif date == 2:
-            database.to_csv('data/MOVIE3/day2.csv')
+            database.to_csv(    'data/MOVIE3/day2.csv',igonre_index=True)
 
         
         elif date == 3:
-            database.to_csv('data/MOVIE3/day3.csv')
+            database.to_csv(    'data/MOVIE3/day3.csv',igonre_index=True)
 
         
         elif date == 4:
-            database.to_csv('data/MOVIE3/day4.csv')
+            database.to_csv(    'data/MOVIE3/day4.csv',igonre_index=True)
 
         
         elif date == 5:
-            database.to_csv('data/MOVIE3/day5.csv')
+            database.to_csv(    'data/MOVIE3/day5.csv',igonre_index=True)
 
         
         elif date == 6:
-            database.to_csv('data/MOVIE3/day6.csv')
+            database.to_csv(    'data/MOVIE3/day6.csv',igonre_index=True)
 
         
         elif date == 7:
-            database.to_csv('data/MOVIE3/day7.csv')
+            database.to_csv(    'data/MOVIE3/day7.csv',igonre_index=True)
 
         
         elif date == 8:
-            database.to_csv('data/MOVIE3/day8.csv')
+            database.to_csv(    'data/MOVIE3/day8.csv',igonre_index=True)
 
         
         elif date == 9:
-            database.to_csv('data/MOVIE3/day9.csv')
+            database.to_csv(    'data/MOVIE3/day9.csv',igonre_index=True)
 
         
         elif date == 10:
-            database.to_csv('data/MOVIE3/day10.csv')
+            database.to_csv(    'data/MOVIE3/day10.csv',igonre_index=True)
 
         elif date == 11:
-            database.to_csv('data/MOVIE3/day11.csv')
+            database.to_csv(    'data/MOVIE3/day11.csv',igonre_index=True)
 
         elif date == 12:
-            database.to_csv('data/MOVIE3/day12.csv')
+            database.to_csv(    'data/MOVIE3/day12.csv',igonre_index=True)
 
         elif date == 13:
-            database.to_csv('data/MOVIE3/day13.csv')
+            database.to_csv(    'data/MOVIE3/day13.csv',igonre_index=True)
 
         elif date == 14:
-            database.to_csv('data/MOVIE3/day14.csv')
+            database.to_csv(    'data/MOVIE3/day14.csv',igonre_index=True)
 
         elif date == 15:
-            database.to_csv('data/MOVIE3/day15.csv')
+            database.to_csv(    'data/MOVIE3/day15.csv',igonre_index=True)
 
         elif date == 16:
-            database.to_csv('data/MOVIE3/day16.csv')
+            database.to_csv(    'data/MOVIE3/day16.csv',igonre_index=True)
 
         elif date == 17:
-            database.to_csv('data/MOVIE3/day17.csv')
+            database.to_csv(    'data/MOVIE3/day17.csv',igonre_index=True)
 
         elif date == 18:
-            database.to_csv('data/MOVIE3/day18.csv')
+            database.to_csv(    'data/MOVIE3/day18.csv',igonre_index=True)
 
         elif date == 19:
-            database.to_csv('data/MOVIE3/day19.csv')
+            database.to_csv(    'data/MOVIE3/day19.csv',igonre_index=True)
 
         elif date == 20:
-            database.to_csv('data/MOVIE3/day20.csv')
+            database.to_csv(    'data/MOVIE3/day20.csv',igonre_index=True)
 
         elif date == 21:
-            database.to_csv('data/MOVIE3/day21.csv')
+            database.to_csv(    'data/MOVIE3/day21.csv',igonre_index=True)
 
         elif date == 22:
-            database.to_csv('data/MOVIE3/day22.csv')
+            database.to_csv(    'data/MOVIE3/day22.csv',igonre_index=True)
 
         elif date == 23:
-            database.to_csv('data/MOVIE3/day23.csv')
+            database.to_csv(    'data/MOVIE3/day23.csv',igonre_index=True)
 
         elif date == 24:
-            database.to_csv('data/MOVIE3/day24.csv')
+            database.to_csv(    'data/MOVIE3/day24.csv',igonre_index=True)
 
         elif date == 25:
-            database.to_csv('data/MOVIE3/day25.csv')
+            database.to_csv(    'data/MOVIE3/day25.csv',igonre_index=True)
 
         elif date == 26:
-            database.to_csv('data/MOVIE3/day26.csv')
+            database.to_csv(    'data/MOVIE3/day26.csv',igonre_index=True)
 
         elif date == 27:
-            database.to_csv('data/MOVIE3/day27.csv')
+            database.to_csv(    'data/MOVIE3/day27.csv',igonre_index=True)
 
         elif date == 28:
-            database.to_csv('data/MOVIE3/day28.csv')
+            database.to_csv(    'data/MOVIE3/day28.csv',igonre_index=True)
 
         elif date == 29:
-            database.to_csv('data/MOVIE3/day29.csv')
+            database.to_csv(    'data/MOVIE3/day29.csv',igonre_index=True)
 
         elif date == 30:
-            database.to_csv('data/MOVIE3/day30.csv')
+            database.to_csv(    'data/MOVIE3/day30.csv',igonre_index=True)
 
         elif date == 31:
-            database.to_csv('data/MOVIE3/day31.csv')
+            database.to_csv(    'data/MOVIE3/day31.csv',igonre_index=True)
 
         else:
             None

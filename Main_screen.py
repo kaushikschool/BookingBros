@@ -563,7 +563,12 @@ class Stream_frame(object):
 # main window
 class Main_window():
     
-    def __init__(self):
+    def __init__(self,email,pswd):
+        
+        self.email = email
+        self.pswd = pswd
+        
+        user_selection.who_is_user(self.email, self.pswd)
         
         self.root = tk.Tk()
         self.root.title('Booking Bros')

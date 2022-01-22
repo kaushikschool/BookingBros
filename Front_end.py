@@ -112,8 +112,7 @@ class Ask_pswd(object):
         self.password = str(self.paswd_entry.get())
         email_verification.user_info(self.phone, self.name, self.email, self.original_cc_code,self.password)
         self.pswd_window.destroy()
-        user_selection.who_is_user(self.email, self.password)
-        Main_screen.Main_window()
+        Main_screen.Main_window(self.email,self.password)
         
          
 # if code valid or not
