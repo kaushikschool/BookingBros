@@ -323,7 +323,7 @@ class BuyTicket(object):
         self.BTframe = LabelFrame(self.master,highlightthickness=0,borderwidth=0,font='Helvetica 10 bold',bg='white')
         self.BTframe.place(x=350,y=100,height=490,width=540)   
         
-        self.date_pick_lbl = tk.Label(self.BTframe,highlightthickness=0,borderwidth=0,text='Pick a ate you want to book seat for',bg='white',font='Helvetica 18 bold')
+        self.date_pick_lbl = tk.Label(self.BTframe,highlightthickness=0,borderwidth=0,text='Pick a date you want to book seat for',bg='white',font='Helvetica 18 bold')
         self.date_pick_lbl.place(x=55,y=30)
         
         self.date_pick = Calendar(self.BTframe,selectmode='day',background="black", disabledbackground="black", bordercolor="black", 

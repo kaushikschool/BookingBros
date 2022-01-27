@@ -638,9 +638,9 @@ class MainApp():
         self.price = 100
         
         if self.df.iloc[rows,columns] == 1:
-            self.root.withdraw()
+            # self.root.withdraw()
             self.show('SEAT INFO.', f'Selected seat R{rows}{columns} is already booked!')
-            self.root.deiconify()
+            # self.root.deiconify()
         elif self.df.iloc[rows,columns] == 0:
             
             
@@ -653,16 +653,16 @@ class MainApp():
         else:
             print('unkknows error')
         
-        self.root.destroy()
+        # self.root.destroy()
     
     def left_functions(self,rows,columns):
         
         self.lef_side = self.df.iloc[0:9,0:6]
         self.price = 50
         if self.df.iloc[rows,columns] == 1:
-            self.root.withdraw()
+            # self.root.withdraw()
             self.show('SEAT INFO.', f'Selected seat R{rows}{columns} is already booked!')
-            self.root.deiconify()
+            # self.root.deiconify()
             
         elif self.df.iloc[rows,columns] == 0:
             
@@ -683,9 +683,9 @@ class MainApp():
         self.price = 50
         
         if self.df.iloc[rows,columns] == 1:
-            self.root.withdraw()
+            # self.root.withdraw()
             self.show('SEAT INFO.', f'Selected seat r{rows}{columns} is already booked!')
-            self.root.deiconify()
+            # self.root.deiconify()
             
         elif self.df.iloc[rows,columns] == 0:
             
@@ -706,9 +706,9 @@ class MainApp():
         self.price = 80
         
         if self.df.iloc[rows,columns] == 1:
-            self.root.withdraw()
+            # self.root.withdraw()
             self.show('SEAT INFO.', f'Selected seat r{rows}{columns} is already booked!')
-            self.root.deiconify()
+            # self.root.deiconify()
             
         elif self.df.iloc[rows,columns] == 0:
             

@@ -350,7 +350,7 @@ class Signin_window(object):
                     self.root.destroy()
                     
                     
-                    Main_screen.Main_window()
+                    Main_screen.Main_window(self.Semail,self.Spassword)
                     
                 else:
                     
